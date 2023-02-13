@@ -21,9 +21,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public List<User> getUserById(User userId) {
-        Example<User> u = Example.of(userId);
-        return userRepository.findAll(u);
+    public User getUserById(String userId) {
+        return userRepository.findById(userId).get();
     }
 
     public User updateUser(User user){

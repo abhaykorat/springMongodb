@@ -5,6 +5,7 @@ import com.example.springMongodb.Service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -13,7 +14,7 @@ public class PhotoResource {
     @Autowired
     private PhotoService photoService;
     @PostMapping
-    public Photo savePhoto(@RequestBody Photo photo){
+    public Photo savePhoto(@RequestBody @Valid Photo photo){
         return photoService.savePhoto(photo);
     }
 
@@ -27,7 +28,7 @@ public class PhotoResource {
         return photoService.getPhotoById(photoId);
     }
     @PutMapping
-    public Photo updatePhoto(@RequestBody Photo photo){
+    public Photo updatePhoto(@RequestBody @Valid Photo photo){
         return photoService.updatePhoto(photo);
     }
 

@@ -1,11 +1,13 @@
 package com.example.springMongodb.Models;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
 
 public class Comment {
     @Id
     private String id;
     private String photoId;
+    @Length(min = 5)
     private String message;
     private String createdBy;
 
